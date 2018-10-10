@@ -8,7 +8,7 @@ public class Game {
     private int nbPlayer;
     Scanner sc = new Scanner(System.in);
 
-    public void initPlayers() {
+    public void initPlayer1() {
         System.out.println("Création du personnage du joueur 1");
         nbPlayer = setNbPlayer();
         switch (nbPlayer) {
@@ -29,6 +29,31 @@ public class Game {
                 player1c.Character();
                 System.out.println("Abracadabra je suis le Mage Joueur 1 niveau " + player1c.nbLevel + " je possède " + player1c.nbVitality +
                         " de vitalité, " + player1c.nbStrength + " de force, " + player1c.nbAgility + " d'agilité, " + player1c.nbIntelligence + " d'intelligence !");
+                break;
+        }
+    }
+
+    public void initPlayer2() {
+        System.out.println("Création du personnage du joueur 2");
+        nbPlayer = setNbPlayer();
+        switch (nbPlayer) {
+            case 1 :
+                Character player2a = new Guerrier();
+                player2a.Character();
+                System.out.println("Woarg je suis le Guerrier Joueur 2 niveau " + player2a.nbLevel + " je possède " + player2a.nbVitality +
+                        " de vitalité, " + player2a.nbStrength + " de force, " + player2a.nbAgility + " d'agilité, " + player2a.nbIntelligence + " d'intelligence !");
+                break;
+            case 2 :
+                Character player2b = new Rôdeur();
+                player2b.Character();
+                System.out.println("Gnehehe je suis le Rôdeur Joueur 2 niveau " + player2b.nbLevel + " je possède " + player2b.nbVitality +
+                        " de vitalité, " + player2b.nbStrength + " de force, " + player2b.nbAgility + " d'agilité, " + player2b.nbIntelligence + " d'intelligence !");
+                break;
+            case 3 :
+                Character player2c = new Mage();
+                player2c.Character();
+                System.out.println("Abracadabra je suis le Mage Joueur 2 niveau " + player2c.nbLevel + " je possède " + player2c.nbVitality +
+                        " de vitalité, " + player2c.nbStrength + " de force, " + player2c.nbAgility + " d'agilité, " + player2c.nbIntelligence + " d'intelligence !");
                 break;
         }
     }
