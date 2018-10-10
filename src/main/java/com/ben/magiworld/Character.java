@@ -10,8 +10,12 @@ public class Character {
     protected int nbIntelligence;
     Scanner sc = new Scanner(System.in);
 
-    public Character() {
-        this.nbLevel = nbLevel;
+    public void Character() {
+        setNbLevel();
+        setNbVitality();
+        setNbStrength();
+        setNbAgility();
+        setNbIntelligence();
     }
 
     public void setNbLevel() {
@@ -21,25 +25,29 @@ public class Character {
         } while (!(nbLevel > 0 && nbLevel <= 100));
     }
 
-    /**public void setNbVitality(int nbVitality) {
-        this.nbVitality = nbVitality;
+    public void setNbVitality() {
+        nbVitality = nbLevel * 5;
     }
 
-    public void setNbStrength(int nbStrength) {
-        this.nbStrength = nbStrength;
+    public void setNbStrength() {
+        do {
+            System.out.println("Force du personnage ?");
+            nbStrength = sc.nextInt();
+        } while (nbStrength > nbLevel);
     }
 
-    public void setNbAgility(int nbAgility) {
-        this.nbAgility = nbAgility;
+    public void setNbAgility() {
+        do {
+            System.out.println("Agilité du personnage ?");
+            nbAgility = sc.nextInt();
+        } while (!(nbAgility <= nbLevel - nbStrength));
     }
 
-    public void setNbIntelligence(int nbIntelligence) {
-        this.nbIntelligence = nbIntelligence;
+    public void setNbIntelligence() {
+        do {
+            System.out.println("Intelligence du personnage ?");
+            nbIntelligence = sc.nextInt();
+        } while (nbIntelligence != nbLevel - (nbStrength + nbAgility));
     }
-
-    public int getNbLevel() {
-        return nbLevel;
-    }
-     */
 
 }

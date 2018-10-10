@@ -13,22 +13,22 @@ public class Game {
         nbPlayer = setNbPlayer();
         switch (nbPlayer) {
             case 1 :
-                Character player1 = new Guerrier();
-                player1.setNbLevel();
-                System.out.println("Woarg je suis le Guerrier Joueur 1 niveau " + "player1.nbLevel" + "je possède " + "nbVitality" +
-                        ", " + "nbStrenght" + "de force, " + "nbAgility" + "d'agilité, " + "nbIntelligence" + "d'intelligence !");
+                Character player1a = new Guerrier();
+                player1a.Character();
+                System.out.println("Woarg je suis le Guerrier Joueur 1 niveau " + player1a.nbLevel + " je possède " + player1a.nbVitality +
+                        " de vitalité, " + player1a.nbStrength + " de force, " + player1a.nbAgility + " d'agilité, " + player1a.nbIntelligence + " d'intelligence !");
                 break;
             case 2 :
-                //Character player1 = new Rôdeur();
-                // player1.caract();
-                System.out.println("Gnehehe je suis le Rôdeur Joueur 1 niveau " + "nbLevel" + "je possède " + "nbVitality" +
-                        ", " + "nbStrenght" + "de force, " + "nbAgility" + "d'agilité, " + "nbIntelligence" + "d'intelligence !");
+                Character player1b = new Rôdeur();
+                player1b.Character();
+                System.out.println("Gnehehe je suis le Rôdeur Joueur 1 niveau " + player1b.nbLevel + " je possède " + player1b.nbVitality +
+                        " de vitalité, " + player1b.nbStrength + " de force, " + player1b.nbAgility + " d'agilité, " + player1b.nbIntelligence + " d'intelligence !");
                 break;
             case 3 :
-                //Character player1 = new Mage();
-                // player1.charact();
-                System.out.println("Abracadabra je suis le Mage Joueur 1 niveau " + "nbLevel" + "je possède " + "nbVitality" +
-                        ", " + "nbStrenght" + "de force, " + "nbAgility" + "d'agilité, " + "nbIntelligence" + "d'intelligence !");
+                Character player1c = new Mage();
+                player1c.Character();
+                System.out.println("Abracadabra je suis le Mage Joueur 1 niveau " + player1c.nbLevel + " je possède " + player1c.nbVitality +
+                        " de vitalité, " + player1c.nbStrength + " de force, " + player1c.nbAgility + " d'agilité, " + player1c.nbIntelligence + " d'intelligence !");
                 break;
         }
     }
