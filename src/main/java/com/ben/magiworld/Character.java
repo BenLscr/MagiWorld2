@@ -50,4 +50,11 @@ public class Character {
         } while (nbIntelligence != nbLevel - (nbStrength + nbAgility));
     }
 
+    public int getNbVitality() {
+        return nbVitality;
+    }
+
+    public int basicAttack() {return basicAttack();}
+
+    public int specialAttack() {return specialAttack();}
 }
