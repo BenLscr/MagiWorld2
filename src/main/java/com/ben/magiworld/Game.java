@@ -15,31 +15,24 @@ public class Game {
     public void initPlayers() {
         int i = 0;
         do {
+            Character player = null;
             i++;
             System.out.println("Création du personnage du joueur "+ i);
             nbPlayer = setNbPlayer();
             switch (nbPlayer)  {
                 case 1:
-                    Character playerA = new Guerrier();
-                    playerA.Character();
-                    System.out.println("Woarg je suis le Guerrier Joueur "+ i +" niveau " + playerA.nbLevel + " je possède " + playerA.nbVitality +
-                            " de vitalité, " + playerA.nbStrength + " de force, " + playerA.nbAgility + " d'agilité, " + playerA.nbIntelligence + " d'intelligence !");
-                    players.add(playerA);
+                    player = new Guerrier();
                     break;
                 case 2:
-                    Character playerB = new Rôdeur();
-                    playerB.Character();
-                    System.out.println("Gnehehe je suis le Rôdeur Joueur "+ i + " niveau " + playerB.nbLevel + " je possède " + playerB.nbVitality +
-                            " de vitalité, " + playerB.nbStrength + " de force, " + playerB.nbAgility + " d'agilité, " + playerB.nbIntelligence + " d'intelligence !");
-                    players.add(playerB);
+                    player = new Rôdeur();
                     break;
                 case 3:
-                    Character playerC = new Mage();
-                    playerC.Character();
-                    System.out.println("Abracadabra je suis le Mage Joueur " + i + " niveau " + playerC.nbLevel + " je possède " + playerC.nbVitality +
-                            " de vitalité, " + playerC.nbStrength + " de force, " + playerC.nbAgility + " d'agilité, " + playerC.nbIntelligence + " d'intelligence !");
-                    players.add(playerC);
+                    player = new Mage();
                     break;
+            }
+            if (player != null) {
+                System.out.println(player);
+                players.add(player);
             }
         } while (players.size() != 2);
     }
@@ -64,7 +57,7 @@ public class Game {
     /**
      * Progress of the fight. Players play while nobody is dead.
      */
-   /** public void fight() {
+   /**public void fight() {
         Object joueur1;
         players.get(0) = joueur1;
         int nbAttack;
@@ -93,20 +86,16 @@ public class Game {
                 System.out.println("Joueur 2 est mort");
                 System.out.println("Joueur 2 a perdu !");
             }
-            if (joueur1.getNbVitalite() > 0) {
-                System.out.println("Joueur 2 (" + joueur1.getNbVitalite() + ") veuillez choisir votre action (1 :" +
+            if (players.get(0).getNbVitality() > 0) {
+                System.out.println("Joueur 2 (" + players.get(0).getNbVitality() + ") veuillez choisir votre action (1 :" +
                         " Attaque Basique, 2 : Attaque Spéciale)");
-                Attack();
                 System.out.println("Joueur 2 utilise " + nomducouuuuup + "et inflige " + nombrededommages + " dommages.");
                 System.out.println("Joueur 1 perd" + nombrededommages + "points de vie");
-                joueur2.getNbVitalite() = joueur2.getNbVitalite() - nombrededommages;
+                players.get(1).getNbVitality() = players.get(1).getNbVitality() - nombrededommages;
             } else {
                 System.out.println("Joueur 1 est mort");
                 System.out.println("Joueur 1 a perdu !");
             }
-        } while (joueur1.getNbVitalite() != 0 || joueur2.getNbVitalite != 0 );
+        } while (players.get(0).getNbVitality() != 0 || players.get(1).getNbVitality() != 0);
     }*/
-    
 }
-
-

@@ -6,9 +6,13 @@ public class Guerrier extends Character {
     Scanner sc = new Scanner(System.in);
     private int nbDamage;
 
+    public Guerrier() {
+        super();
+    }
+
     @Override
-    public void Character() {
-        super.Character();
+    public String toString() {
+        return  "Woarg je suis le Guerrier" + super.toString();
     }
 
     @Override
@@ -16,15 +20,24 @@ public class Guerrier extends Character {
         return super.getNbVitality();
     }
 
+    /**
+     * Make equal damage in the strength of the player on the opponent.
+     * @return damage deal
+     */
     @Override
     public int basicAttack() {
-        nbDamage = nbStrength;
+        nbDamage = getNbStrength();
         return nbDamage;
     }
 
+    /**
+     * Make equal damage in the strength of the player time two on the opponent.
+     * The launching player the attack loses of the vitality: the value of its strength divided by 2.
+     * @return damage deal
+     */
     /**@Override
     public int specialAttack() {
             nbDamage = nbStrength *2;
-       return ;
+       return nbStrength;
     }*/
 }

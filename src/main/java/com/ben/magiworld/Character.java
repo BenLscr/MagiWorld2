@@ -3,55 +3,89 @@ package com.ben.magiworld;
 import java.util.Scanner;
 
 public class Character {
-    protected int nbLevel;
-    protected int nbVitality;
-    protected int nbStrength;
-    protected int nbAgility;
-    protected int nbIntelligence;
+    private int nbLevel;
+    private int nbVitality;
+    private int nbStrength;
+    private int nbAgility;
+    private int nbIntelligence;
     Scanner sc = new Scanner(System.in);
 
-    public void Character() {
-        setNbLevel();
-        setNbVitality();
-        setNbStrength();
-        setNbAgility();
-        setNbIntelligence();
+    public Character() {
+        askNbLevel();
+        askNbStrength();
+        askNbAgility();
+        askNbIntelligence();
     }
 
-    public void setNbLevel() {
+    private void askNbLevel() {
         do {
             System.out.println("Niveau du personnage ?");
-            nbLevel = sc.nextInt();
+            setNbLevel(sc.nextInt());
         } while (!(nbLevel > 0 && nbLevel <= 100));
     }
 
-    public void setNbVitality() {
-        nbVitality = nbLevel * 5;
-    }
-
-    public void setNbStrength() {
+    public void askNbStrength() {
         do {
             System.out.println("Force du personnage ?");
-            nbStrength = sc.nextInt();
+            setNbStrength(sc.nextInt());
         } while (nbStrength > nbLevel);
     }
 
-    public void setNbAgility() {
+    public void askNbAgility() {
         do {
             System.out.println("Agilité du personnage ?");
-            nbAgility = sc.nextInt();
+            setNbAgility(sc.nextInt());
         } while (!(nbAgility <= nbLevel - nbStrength));
     }
 
-    public void setNbIntelligence() {
+    public void askNbIntelligence() {
         do {
             System.out.println("Intelligence du personnage ?");
-            nbIntelligence = sc.nextInt();
+            setNbIntelligence(sc.nextInt());
         } while (nbIntelligence != nbLevel - (nbStrength + nbAgility));
+    }
+
+    public int getNbLevel() {
+        return nbLevel;
+    }
+
+    public void setNbLevel(int nbLevel) {
+        this.nbLevel = nbLevel;
+        nbVitality = nbLevel * 5;
+    }
+
+    public int getNbStrength() {
+        return nbStrength;
+    }
+
+    public void setNbStrength(int nbStrength) {
+        this.nbStrength = nbStrength;
+    }
+
+    public int getNbAgility() {
+        return nbAgility;
+    }
+
+    public void setNbAgility(int nbAgility) {
+        this.nbAgility = nbAgility;
+    }
+
+    public int getNbIntelligence() {
+        return nbIntelligence;
+    }
+
+    public void setNbIntelligence(int nbIntelligence) {
+        this.nbIntelligence = nbIntelligence;
     }
 
     public int getNbVitality() {
         return nbVitality;
+    }
+
+    @Override
+    public String toString() {
+        return " niveau " + getNbLevel() + " je possède " + getNbVitality() +
+                " de vitalité, " + getNbStrength() + " de force, " + getNbAgility() + " d'agilité, " + getNbIntelligence() + " d'intelligence !";
     }
 
     public int basicAttack() {return basicAttack();}
