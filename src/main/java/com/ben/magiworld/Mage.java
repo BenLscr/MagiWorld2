@@ -15,6 +15,8 @@ public class Mage extends Character {
         return  "Abracadabra je suis le Mage" + super.toString();
     }
 
+
+
     /**
      * Make equal damage in the intelligence of the player on the opponent.
      * @return damage deal

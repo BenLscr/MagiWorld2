@@ -5,6 +5,10 @@ import java.util.List;
 
 public class Game {
     private int nbPlayer;
+    private Character character;
+    private Guerrier Guerrier;
+    private Mage mage;
+    private Rôdeur rodeur;
     List<Object> players = new ArrayList<>();  //save instances of players
     Scanner sc = new Scanner(System.in);
 
@@ -57,36 +61,33 @@ public class Game {
     /**
      * Progress of the fight. Players play while nobody is dead.
      */
-   /**public void fight() {
-        Object joueur1;
-        players.get(0) = joueur1;
+   public void fight() {
+        Character joueur1 = (Character) players.get(0);
+        Character joueur2 = (Character) players.get(1);
         int nbAttack;
         do {
-            if (players.get(1).getNbVitality() > 0) {
-                System.out.println("Joueur 1 (" + players.get(0).getNbVitality() + ") veuillez choisir votre action (1 :" +
+            if (joueur2.getNbVitality() > 0) {
+                System.out.println("Joueur 1 (" + joueur1.getNbVitality() + ") veuillez choisir votre action (1 :" +
                         " Attaque Basique, 2 : Attaque Spéciale)");
                 do {
                     nbAttack = sc.nextInt();
                 }while (nbAttack < 1 || nbAttack > 2);
                 switch (nbAttack) {
                     case 1 :
-                        character.basicAttack();
-                        players.get(1).getNbVitality = players.get(1).getNbVitality - nbDamage;
-                        System.out.println("Joueur 1 utilise " + nomducouuuuup + "et inflige " + nbDamage + " dommages.");
-                        System.out.println("Joueur 2 perd" + nbDamage + "points de vie");
+                        joueur2.nbVitality = joueur2.getNbVitality() - joueur1.basicAttack();
+                        System.out.println("Joueur 1 utilise Coup d'épée et inflige " + joueur1.basicAttack() + " dommages.");
+                        System.out.println("Joueur 2 perd " + joueur1.basicAttack() + " points de vie");
+                        System.out.println("Vie du joueur 2 " + joueur2.getNbVitality());
                         break;
                     case 2 :
-                        character.basicAttack();
-                        players.get(1).getNbVitality =
-                        System.out.println("Joueur 1 utilise " + nomducouuuuup + "et inflige " + nbDamage + " dommages.");
-                        System.out.println("Joueur 2 perd" + nbDamage + "points de vie");
+                        joueur1.specialAttack();
                         break;
                 }
             } else {
                 System.out.println("Joueur 2 est mort");
                 System.out.println("Joueur 2 a perdu !");
             }
-            if (players.get(0).getNbVitality() > 0) {
+            /**if (players.get(0).getNbVitality() > 0) {
                 System.out.println("Joueur 2 (" + players.get(0).getNbVitality() + ") veuillez choisir votre action (1 :" +
                         " Attaque Basique, 2 : Attaque Spéciale)");
                 System.out.println("Joueur 2 utilise " + nomducouuuuup + "et inflige " + nombrededommages + " dommages.");
@@ -95,7 +96,7 @@ public class Game {
             } else {
                 System.out.println("Joueur 1 est mort");
                 System.out.println("Joueur 1 a perdu !");
-            }
-        } while (players.get(0).getNbVitality() != 0 || players.get(1).getNbVitality() != 0);
-    }*/
+            }*/
+        } while (joueur1.getNbVitality() != 0 || joueur2.getNbVitality() != 0);
+    }
 }

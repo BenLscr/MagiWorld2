@@ -15,14 +15,8 @@ public class Guerrier extends Character {
         return  "Woarg je suis le Guerrier" + super.toString();
     }
 
-    @Override
-    public int getNbVitality() {
-        return super.getNbVitality();
-    }
-
     /**
      * Make equal damage in the strength of the player on the opponent.
-     * @return damage deal
      */
     @Override
     public int basicAttack() {

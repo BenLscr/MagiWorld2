@@ -3,11 +3,12 @@ package com.ben.magiworld;
 import java.util.Scanner;
 
 public class Character {
-    private int nbLevel;
-    private int nbVitality;
-    private int nbStrength;
-    private int nbAgility;
-    private int nbIntelligence;
+    protected int nbLevel;
+    protected int nbVitality;
+    protected int nbStrength;
+    protected int nbAgility;
+    protected int nbIntelligence;
+    protected int nbDamage;
     Scanner sc = new Scanner(System.in);
 
     public Character() {
@@ -84,11 +85,12 @@ public class Character {
 
     @Override
     public String toString() {
+        //essayer d'ajouter un i puisque que l'on a le droit d'ecrire avant un return si la méthode n'est pas un constructeur :)
         return " niveau " + getNbLevel() + " je possède " + getNbVitality() +
                 " de vitalité, " + getNbStrength() + " de force, " + getNbAgility() + " d'agilité, " + getNbIntelligence() + " d'intelligence !";
     }
 
-    public int basicAttack() {return basicAttack();}
+    public int basicAttack() {return nbDamage;}
 
-    public int specialAttack() {return specialAttack();}
+    public void specialAttack() {}
 }
