@@ -35,7 +35,10 @@ public class Mage extends Character {
     public int specialAttack() {
         nbSDamage = 0;
         nbVitality = getNbVitality() + (getNbIntelligence() * 2);
-       return nbSDamage;
+        if (nbVitality > nbLevel * 5) {
+            nbVitality = nbLevel * 5;
+        }
+        return nbSDamage;
     }
 
     @Override
