@@ -5,12 +5,11 @@ import java.util.List;
 
 public class Game {
     private int nbPlayer;
-    private Character character;
-    private Guerrier Guerrier;
-    private Mage mage;
-    private Rôdeur rodeur;
     List<Object> players = new ArrayList<>();  //save instances of players
     Scanner sc = new Scanner(System.in);
+    private Object Guerrier;
+    private Character Rôdeur;
+    private Character Mage;
 
 
     /**
@@ -66,7 +65,7 @@ public class Game {
         Character joueur2 = (Character) players.get(1);
         int nbAttack;
         do {
-            if (joueur2.getNbVitality() > 0) {
+            if (joueur1.getNbVitality() > 0) {
                 System.out.println("Joueur 1 (" + joueur1.getNbVitality() + ") veuillez choisir votre action (1 :" +
                         " Attaque Basique, 2 : Attaque Spéciale)");
                 do {
@@ -75,28 +74,43 @@ public class Game {
                 switch (nbAttack) {
                     case 1 :
                         joueur2.nbVitality = joueur2.getNbVitality() - joueur1.basicAttack();
-                        System.out.println("Joueur 1 utilise Coup d'épée et inflige " + joueur1.basicAttack() + " dommages.");
+                        System.out.println("Joueur 1 utilise " + joueur1.basicAttackName());
                         System.out.println("Joueur 2 perd " + joueur1.basicAttack() + " points de vie");
-                        System.out.println("Vie du joueur 2 " + joueur2.getNbVitality());
                         break;
                     case 2 :
-                        joueur1.specialAttack();
+                        joueur2.nbVitality = joueur2.getNbVitality() - joueur1.specialAttack();
+                        System.out.println("Joueur 1 utilise " + joueur1.specialAttackName());
+                        System.out.println("Joueur 2" + joueur1.specialEffect());
+                        break;
+                }
+            } else {
+                System.out.println("Joueur 1 est mort");
+                System.out.println("Joueur 1 a perdu !");
+                break;
+            }
+            if (joueur2.getNbVitality() > 0) {
+                System.out.println("Joueur 2 (" + joueur2.getNbVitality() + ") veuillez choisir votre action (1 :" +
+                        " Attaque Basique, 2 : Attaque Spéciale)");
+                do {
+                    nbAttack = sc.nextInt();
+                } while (nbAttack < 1 || nbAttack > 2);
+                switch (nbAttack) {
+                    case 1 :
+                        joueur1.nbVitality = joueur1.getNbVitality() - joueur2.basicAttack();
+                        System.out.println("Joueur 2 utilise " + joueur2.basicAttackName());
+                        System.out.println("Joueur 1 perd " + joueur2.basicAttack() + " points de vie");
+                        break;
+                    case 2 :
+                        joueur1.nbVitality = joueur1.getNbVitality() - joueur2.specialAttack();
+                        System.out.println("Joueur 2 utilise " + joueur2.specialAttackName());
+                        System.out.println("Joueur 1" + joueur2.specialEffect());
                         break;
                 }
             } else {
                 System.out.println("Joueur 2 est mort");
                 System.out.println("Joueur 2 a perdu !");
+                break;
             }
-            /**if (players.get(0).getNbVitality() > 0) {
-                System.out.println("Joueur 2 (" + players.get(0).getNbVitality() + ") veuillez choisir votre action (1 :" +
-                        " Attaque Basique, 2 : Attaque Spéciale)");
-                System.out.println("Joueur 2 utilise " + nomducouuuuup + "et inflige " + nombrededommages + " dommages.");
-                System.out.println("Joueur 1 perd" + nombrededommages + "points de vie");
-                players.get(1).getNbVitality() = players.get(1).getNbVitality() - nombrededommages;
-            } else {
-                System.out.println("Joueur 1 est mort");
-                System.out.println("Joueur 1 a perdu !");
-            }*/
         } while (joueur1.getNbVitality() != 0 || joueur2.getNbVitality() != 0);
     }
 }

@@ -3,13 +3,18 @@ package com.ben.magiworld;
 import java.util.Scanner;
 
 public class Character {
+    Scanner sc = new Scanner(System.in);
     protected int nbLevel;
     protected int nbVitality;
     protected int nbStrength;
     protected int nbAgility;
     protected int nbIntelligence;
-    protected int nbDamage;
-    Scanner sc = new Scanner(System.in);
+    protected int nbBDamage;
+    protected int nbSDamage;
+    private String basicName;
+    private String specialName;
+    private String effect;
+
 
     public Character() {
         askNbLevel();
@@ -86,11 +91,17 @@ public class Character {
     @Override
     public String toString() {
         //essayer d'ajouter un i puisque que l'on a le droit d'ecrire avant un return si la méthode n'est pas un constructeur :)
-        return " niveau " + getNbLevel() + " je possède " + getNbVitality() +
-                " de vitalité, " + getNbStrength() + " de force, " + getNbAgility() + " d'agilité, " + getNbIntelligence() + " d'intelligence !";
+        return " niveau " + getNbLevel() + " je possède " + getNbVitality() + " de vitalité, " + getNbStrength() +
+                " de force, " + getNbAgility() + " d'agilité, " + getNbIntelligence() + " d'intelligence !";
     }
 
-    public int basicAttack() {return nbDamage;}
+    public int basicAttack() {return nbBDamage;}
 
-    public void specialAttack() {}
+    public String basicAttackName() {return basicName;}
+
+    public int specialAttack() {return nbSDamage;}
+
+    public String specialEffect() {return effect;}
+
+    public String specialAttackName() {return specialName;}
 }

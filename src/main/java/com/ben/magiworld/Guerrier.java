@@ -1,10 +1,6 @@
 package com.ben.magiworld;
 
-import java.util.Scanner;
-
 public class Guerrier extends Character {
-    Scanner sc = new Scanner(System.in);
-    private int nbDamage;
 
     public Guerrier() {
         super();
@@ -20,8 +16,13 @@ public class Guerrier extends Character {
      */
     @Override
     public int basicAttack() {
-        nbDamage = getNbStrength();
-        return nbDamage;
+        nbBDamage = getNbStrength();
+        return nbBDamage;
+    }
+
+    @Override
+    public String basicAttackName() {
+        return "Coup d'épée et inflige " + nbBDamage + " dommages.";
     }
 
     /**
@@ -29,9 +30,20 @@ public class Guerrier extends Character {
      * The launching player the attack loses of the vitality: the value of its strength divided by 2.
      * @return damage deal
      */
-    /**@Override
+    @Override
     public int specialAttack() {
-            nbDamage = nbStrength *2;
-       return nbStrength;
-    }*/
+        nbSDamage = getNbStrength() * 2;
+        nbVitality = getNbVitality() - (getNbStrength() / 2);
+        return nbSDamage;
+    }
+
+    @Override
+    public String specialEffect() {
+        return " perd " + nbSDamage + " points de vie \nJoueur 1 perd " + getNbStrength()/2 + " points de vie";
+    }
+
+    @Override
+    public String specialAttackName() {
+        return "Coup de rage et inflige " + nbSDamage + " dommages.";
+    }
 }

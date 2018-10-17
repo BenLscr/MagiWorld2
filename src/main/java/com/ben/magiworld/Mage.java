@@ -1,10 +1,6 @@
 package com.ben.magiworld;
 
-import java.util.Scanner;
-
 public class Mage extends Character {
-    Scanner sc = new Scanner(System.in);
-    private int nbDamage;
 
     public Mage() {
         super();
@@ -15,16 +11,19 @@ public class Mage extends Character {
         return  "Abracadabra je suis le Mage" + super.toString();
     }
 
-
-
     /**
      * Make equal damage in the intelligence of the player on the opponent.
      * @return damage deal
      */
     @Override
     public int basicAttack() {
-        nbDamage = getNbIntelligence();
-        return nbDamage;
+        nbBDamage = getNbIntelligence();
+        return nbBDamage;
+    }
+
+    @Override
+    public String basicAttackName() {
+        return "Boule de feu et inflige " + nbBDamage + " dommages.";
     }
 
     /**
@@ -32,9 +31,20 @@ public class Mage extends Character {
      *Watch out, he cannot have more life than he had it at first.
      * @return viltality
      */
-    /**@Override
+    @Override
     public int specialAttack() {
-        nbVitality = nbVitality + (nbIntelligence * 2);
-       return nbVitality;
-    }*/
+        nbSDamage = 0;
+        nbVitality = getNbVitality() + (getNbIntelligence() * 2);
+       return nbSDamage;
+    }
+
+    @Override
+    public String specialAttackName() {
+        return "Soin et gagne " + getNbIntelligence()*2 + " en vitalité.";
+    }
+
+    @Override
+    public String specialEffect() {
+        return " perd " + nbSDamage + " points de vie.";
+    }
 }

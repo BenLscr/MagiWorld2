@@ -1,10 +1,6 @@
 package com.ben.magiworld;
 
-import java.util.Scanner;
-
 public class Rôdeur extends Character {
-    Scanner sc = new Scanner(System.in);
-    private int nbDamage;
 
     public Rôdeur() {
         super();
@@ -21,17 +17,33 @@ public class Rôdeur extends Character {
      */
     @Override
     public int basicAttack() {
-        nbDamage = getNbAgility();
-        return nbDamage;
+        nbBDamage = getNbAgility();
+        return nbBDamage;
+    }
+
+    @Override
+    public String basicAttackName() {
+        return "Tir à l'arc et inflige " + nbBDamage + " dommages.";
     }
 
     /**
      *The player wins his level divided by 2 in agility.
      * @return agility add
      */
-    /**@Override
+    @Override
     public int specialAttack() {
-        nbAgility = nbAgility + (nbLevel / 2);
-        return nbAgility;
-    }*/
+        nbSDamage = 0;
+        nbAgility = getNbAgility() + (getNbLevel() / 2);
+        return nbSDamage;
+    }
+
+    @Override
+    public String specialAttackName() {
+        return " Concentration et gagne " + getNbLevel() / 2 + " en agilité.";
+    }
+
+    @Override
+    public String specialEffect() {
+        return " perd " + nbSDamage + " points de vie.";
+    }
 }
