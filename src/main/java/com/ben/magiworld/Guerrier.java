@@ -39,7 +39,7 @@ public class Guerrier extends Character {
 
     @Override
     public String specialEffect() {
-        return " perd " + nbSDamage + " points de vie \nJoueur 1 perd " + getNbStrength()/2 + " points de vie";
+        return super.specialEffect() + "\nJoueur 1 perd " + getNbStrength()/2 + " points de vie";
     }
 
     @Override

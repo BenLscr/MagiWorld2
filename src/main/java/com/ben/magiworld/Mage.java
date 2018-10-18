@@ -45,9 +45,4 @@ public class Mage extends Character {
     public String specialAttackName() {
         return "Soin et gagne " + getNbIntelligence()*2 + " en vitalité.";
     }
-
-    @Override
-    public String specialEffect() {
-        return " perd " + nbSDamage + " points de vie.";
-    }
 }

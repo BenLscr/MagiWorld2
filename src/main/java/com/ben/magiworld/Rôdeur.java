@@ -41,9 +41,4 @@ public class Rôdeur extends Character {
     public String specialAttackName() {
         return " Concentration et gagne " + getNbLevel() / 2 + " en agilité.";
     }
-
-    @Override
-    public String specialEffect() {
-        return " perd " + nbSDamage + " points de vie.";
-    }
 }

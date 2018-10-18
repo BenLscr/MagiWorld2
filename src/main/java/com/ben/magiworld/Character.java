@@ -90,7 +90,6 @@ public class Character {
 
     @Override
     public String toString() {
-        //essayer d'ajouter un i puisque que l'on a le droit d'ecrire avant un return si la méthode n'est pas un constructeur :)
         return " niveau " + getNbLevel() + " je possède " + getNbVitality() + " de vitalité, " + getNbStrength() +
                 " de force, " + getNbAgility() + " d'agilité, " + getNbIntelligence() + " d'intelligence !";
     }
@@ -101,7 +100,7 @@ public class Character {
 
     public int specialAttack() {return nbSDamage;}
 
-    public String specialEffect() {return effect;}
+    public String specialEffect() {return " perd " + nbSDamage + " points de vie.";}
 
     public String specialAttackName() {return specialName;}
 }
