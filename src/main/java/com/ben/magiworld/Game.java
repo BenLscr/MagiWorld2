@@ -7,10 +7,6 @@ public class Game {
     private int nbPlayer;
     List<Object> players = new ArrayList<>();  //save instances of players
     Scanner sc = new Scanner(System.in);
-    private Object Guerrier;
-    private Character Rôdeur;
-    private Character Mage;
-
 
     /**
      * Defined the players and their characteristics
@@ -45,10 +41,6 @@ public class Game {
      * @return return the choice
      */
     public int setNbPlayer() {
-        Map<String, Integer> characters = new HashMap<>();
-        characters.put("Guerrier", 1);
-        characters.put("Rôdeur", 2);
-        characters.put("Mage", 3);
         do {
             System.out.println("Veuillez choisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 Mage)");
             this.nbPlayer = sc.nextInt();
